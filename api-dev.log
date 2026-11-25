@@ -1,0 +1,33 @@
+
+> evacsim@0.1.0 api
+> npm --prefix api run dev
+
+
+> egress-api@0.1.0 dev
+> node dev.mjs
+
+egress-api on :8787 (gemini, model gemini-3.5-flash-lite, key set)
+Gemini API error 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+Gemini API error 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+Gemini API error 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
