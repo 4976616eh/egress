@@ -36,9 +36,9 @@ export function prepareImage(src: string): Promise<string> {
 /** `floor` is the floor index (0 = ground floor) the plan belongs to, so the AI picks the right one if the image shows several. */
 export async function analyzePlan(background: string, signal?: AbortSignal, floor = 0): Promise<PlanSpec> {
   const image = await prepareImage(background);
-  if (!API_URL) {
-    throw new Error('AI услугата не е конфигурирана за този сайт. Задай VITE_API_URL с публичния адрес на AI API услугата.');
-  }
+  // Празен API_URL означава относителен път (същият домин), което работи на
+  // Vercel чрез vercel.json rewrites (/analyze-plan → /api/analyze-plan.js).
+  // В DEV режим, когато VITE_API_URL не е зададен, се 낙ъсва http://<host>:8787.
   let res: Response;
   try {
     res = await fetch(`${API_URL}/analyze-plan`, {
