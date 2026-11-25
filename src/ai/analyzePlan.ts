@@ -49,10 +49,10 @@ export async function analyzePlan(background: string, signal?: AbortSignal, floo
     });
   } catch (e) {
     if ((e as Error).name === 'AbortError') throw e;
-    const hint = import.meta.env.DEV
-      ? 'Провери, че API сървърът работи с „npm run api“ и че адресът на сайта е включен в ALLOWED_ORIGINS в api/.env.'
-      : 'Задай VITE_API_URL към публичния адрес на API услугата и добави адреса на сайта в ALLOWED_ORIGINS на API услугата.';
-    throw new Error(`Няма връзка с AI услугата (${API_URL}). ${hint} Можеш да начертаеш плана ръчно.`);
+    // Детайлите за грешката отиват само в конзолата (за разработчика),
+    // а потребителят вижда общо съобщение без вътрешни URL/портове.
+    console.error('AI услуга грешка:', e);
+    throw new Error('Няма достъп до AI услугата. Опитайте по-късно или начертайте плана ръчно.');
   }
   const data = await res.json().catch(() => null);
   if (!res.ok) throw new Error(data?.error || 'AI услугата върна грешка.');

@@ -102,5 +102,3 @@ The repo-level deployment details, including the required commands and environme
 - Zustand for state management
 - Tailwind CSS for styling
 - Optional AI backend in `api/` using Anthropic or Gemini
-
-Test
